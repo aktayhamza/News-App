@@ -1,8 +1,11 @@
 package com.example.news_app.ui.adapter
 
+import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.AsyncListDiffer
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.RecyclerView
@@ -11,11 +14,11 @@ import com.example.news_app.R
 import com.example.news_app.ui.models.Article
 import kotlinx.android.synthetic.main.item_article_preview.view.*
 
-class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder> () {
+class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder>() {
 
     inner class ArticleViewHolder(itemView: View): RecyclerView.ViewHolder(itemView)
 
-    private val differCallback = object : DiffUtil.ItemCallback<Article> (){
+    private val differCallback = object : DiffUtil.ItemCallback<Article>(){
         override fun areItemsTheSame(oldItem: Article, newItem: Article): Boolean {
             return oldItem.url == newItem.url
         }
@@ -48,6 +51,7 @@ class NewsAdapter : RecyclerView.Adapter<NewsAdapter.ArticleViewHolder> () {
             setOnItemClickListener {
                 onItemClickListener?.let {
                     it(article)
+
                 }
             }
         }

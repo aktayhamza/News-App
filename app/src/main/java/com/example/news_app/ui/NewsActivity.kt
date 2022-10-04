@@ -31,8 +31,8 @@ class NewsActivity : AppCompatActivity() {
 
 
 
-        val navHostFragment= supportFragmentManager.findFragmentById(R.id.newsNavHostFragment) as NavHostFragment
-        val navController= navHostFragment.navController
+        val navHostFragment = supportFragmentManager.findFragmentById(R.id.newsNavHostFragment) as NavHostFragment
+        val navController = navHostFragment.navController
         bottomNavigationView.setupWithNavController(navController)
     }
 }
